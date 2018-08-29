@@ -39,9 +39,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game\Board.cs" />
-    <Compile Include="Game\BoardObjects\BoardObjectsInterface.cs" />
-    <Compile Include="Game\BoardObjects\Mine.cs" />
-    <Compile Include="Game\BoardObjects\Safe.cs" />
     <Compile Include="Game\ConfigurationsReader.cs" />
     <Compile Include="Game\Coordinates.cs" />
     <Compile Include="Game\MinesweeperBox.cs" />

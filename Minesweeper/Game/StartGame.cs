@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Minesweeper.Game
 {
-    public class StartGame
+    public static class StartGame
     {
         public static void Games(string file)
         {

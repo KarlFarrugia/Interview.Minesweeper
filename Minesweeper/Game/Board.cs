@@ -9,7 +9,7 @@ namespace Minesweeper.Game
         private int BoardWidth { get; set; }
         private int BoardLength { get; set; }
         private static MinesweeperBox[,] Box { get; set; }
-        private const string Safe = ".";
+        private const char Safe = '.';
         private const char Mine = '*';
         private static Validate validate { get; set; }
 
