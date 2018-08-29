@@ -8,11 +8,15 @@
         <e p="Game" t="Include">
           <e p="Board.cs" t="Include" />
           <e p="BoardObjects" t="Include">
+            <e p="BoardObjectsInterface.cs" t="Include" />
             <e p="Mine.cs" t="Include" />
             <e p="Safe.cs" t="Include" />
           </e>
           <e p="ConfigurationsReader.cs" t="Include" />
+          <e p="Coordinates.cs" t="Include" />
+          <e p="MinesweeperBoard.cs" t="Include" />
           <e p="StartGame.cs" t="Include" />
+          <e p="Validate.cs" t="Include" />
         </e>
         <e p="Minesweeper.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />

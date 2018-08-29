@@ -39,10 +39,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game\Board.cs" />
+    <Compile Include="Game\BoardObjects\BoardObjectsInterface.cs" />
     <Compile Include="Game\BoardObjects\Mine.cs" />
     <Compile Include="Game\BoardObjects\Safe.cs" />
     <Compile Include="Game\ConfigurationsReader.cs" />
+    <Compile Include="Game\Coordinates.cs" />
+    <Compile Include="Game\MinesweeperBoard.cs" />
     <Compile Include="Game\StartGame.cs" />
+    <Compile Include="Game\Validate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
