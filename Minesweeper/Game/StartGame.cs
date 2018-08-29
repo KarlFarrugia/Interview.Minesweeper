@@ -1,10 +1,29 @@
-﻿namespace Minesweeper.Game
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace Minesweeper.Game
 {
     public class StartGame
     {
-        public static void Game(string file)
+        public static void Games(string file)
         {
-            var gameConfiguration = new ConfigurationsReader(file);
+            var lines = File.ReadAllLines(file);
+            PlotGame(lines, 0);
+        }
+
+        private static void PlotGame(IEnumerable<string> lines, int current)
+        {
+            if (lines.ElementAt(0).Equals("0 0")) return;
+            
+            Console.WriteLine("Field #{0}:", current);
+            
+            var gameSettings = lines.ElementAt(0).Split(' ').Select(int.Parse).ToList();
+            
+            ConfigurationsReader.Reader(gameSettings, lines.Skip(1).Take(gameSettings.ElementAt(0)).ToList());
+            
+            PlotGame(lines.Skip(gameSettings.ElementAt(0) + 1), current + 1);
         }
     }
 }

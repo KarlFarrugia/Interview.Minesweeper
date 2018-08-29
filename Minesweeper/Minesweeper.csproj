@@ -44,7 +44,7 @@
     <Compile Include="Game\BoardObjects\Safe.cs" />
     <Compile Include="Game\ConfigurationsReader.cs" />
     <Compile Include="Game\Coordinates.cs" />
-    <Compile Include="Game\MinesweeperBoard.cs" />
+    <Compile Include="Game\MinesweeperBox.cs" />
     <Compile Include="Game\StartGame.cs" />
     <Compile Include="Game\Validate.cs" />
     <Compile Include="Program.cs" />

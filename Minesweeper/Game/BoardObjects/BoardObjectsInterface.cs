@@ -1,6 +1,6 @@
 ﻿namespace Minesweeper.Game.BoardObjects
 {
-    public interface BoardObjectsInterface
+    public interface IBoardObjectsInterface
     {
         Coordinates Coordinates { get; set; }
     }

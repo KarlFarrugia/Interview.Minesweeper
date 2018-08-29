@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using Minesweeper.Game.BoardObjects;
 
 namespace Minesweeper.Game
 {
@@ -8,38 +8,63 @@ namespace Minesweeper.Game
     {
         private int BoardWidth { get; set; }
         private int BoardLength { get; set; }
-        private MinesweeperBoard[,] Box { get; set; }
+        private static MinesweeperBox[,] Box { get; set; }
+        private const string Safe = ".";
+        private const char Mine = '*';
+        private static Validate validate { get; set; }
 
+        public Board()
+        {
+            validate = new Validate();
+        }
+        
         private static void IncrementNeighbours(Coordinates coordinates)
         {
             for (var i = -1; i < 2; i++)
             {
                 for (var j = -1; j < 2; j++)
                 {
-                    Coordinates validateCoordinates = new Coordinates {CoordinateX = coordinates.CoordinateX + i,CoordinateY = coordinates.CoordinateY + j};
-                    Validate.ValidBox(validateCoordinates);
+                    var validateCoordinates = new Coordinates 
+                        {CoordinateX = coordinates.CoordinateX + i,CoordinateY = coordinates.CoordinateY + j};
+                    if(Validate.ValidBox(validateCoordinates))
+                        Box[validateCoordinates.CoordinateX, validateCoordinates.CoordinateY].BoarderingMines++;
                 }
             }
         }
         
-        public void CreateBoard(List<int> boardSettings, IEnumerable<Mine> mines)
+        public Board CreateBoard(List<int> boardSettings, IEnumerable<string> lines)
         {
-            BoardWidth = boardSettings.ElementAt(0);
-            BoardLength = boardSettings.ElementAt(1);
-            Box = new MinesweeperBoard[BoardWidth, BoardLength];
-
-            foreach (var mine in mines)
+            validate.ValidateBoard(boardSettings);
+            BoardLength = boardSettings.ElementAt(0);
+            BoardWidth = boardSettings.ElementAt(1);
+            Box = new MinesweeperBox[BoardLength, BoardWidth];
+            Console.Write(BoardLength);
+            Console.WriteLine(BoardWidth);
+            for (var i = 0; i < BoardLength; i++)
             {
-                Box[mine.Coordinates.CoordinateX, mine.Coordinates.CoordinateY].Mine = true;
-                IncrementNeighbours(mine.Coordinates);
+                for (var j = 0; j < BoardWidth; j++)
+                {
+                    if (!Equals(lines.ElementAt(i).ElementAt(j),Mine)) continue;
+                    
+                    Box[i, j].Mine = true;
+                    var coordinates = new Coordinates{CoordinateX = i, CoordinateY = j};
+                    //IncrementNeighbours(coordinates);
+                }
             }
-            
-            //default of boolean is false therefore no need to instantiate other values to false.
+
+            return this;
         }
         
-        public bool IsMine(Coordinates mine)
+        public void Print()
         {
-            return Box[mine.CoordinateX, mine.CoordinateY].Mine;
+            for (var i = 0; i < BoardLength; i++)
+            {
+                for (var j = 0; j < BoardWidth; j++)
+                {
+                    Console.Write(Box[i, j].ToString());
+                }
+                Console.WriteLine();
+            }
         }
     }
 }

@@ -1,12 +1,21 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
 
 namespace Minesweeper.Game
 {
-    public class ConfigurationsReader
+    public static class ConfigurationsReader
     {
-        public ConfigurationsReader(string file)
+        private static Board Board { get; set; }
+
+        public static void Reader(List<int> gameSettings, IEnumerable<string> lines)
         {
-            var lines = File.ReadAllLines(file);
+            Board = BuildBoard(gameSettings, lines);
+            Board.Print();
+        }
+
+        private static Board BuildBoard(List<int> gameSettings, IEnumerable<string> lines)
+        {
+            var board = new Board();
+            return board.CreateBoard(gameSettings, lines);
         }
     }
 }

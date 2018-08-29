@@ -6,7 +6,7 @@ namespace Minesweeper
     {
         public static void Main(string[] args)
         {
-            StartGame.Game(args[0]);
+            StartGame.Games(args[0]);
         }
     }
 }

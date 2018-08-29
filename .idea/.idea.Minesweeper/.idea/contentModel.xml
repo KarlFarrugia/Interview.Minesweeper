@@ -14,7 +14,7 @@
           </e>
           <e p="ConfigurationsReader.cs" t="Include" />
           <e p="Coordinates.cs" t="Include" />
-          <e p="MinesweeperBoard.cs" t="Include" />
+          <e p="MinesweeperBox.cs" t="Include" />
           <e p="StartGame.cs" t="Include" />
           <e p="Validate.cs" t="Include" />
         </e>

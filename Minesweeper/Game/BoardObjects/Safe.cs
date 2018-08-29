@@ -1,6 +1,6 @@
 ﻿namespace Minesweeper.Game.BoardObjects
 {
-    public class Safe : BoardObjectsInterface
+    public class Safe : IBoardObjectsInterface
     {
         private int BoarderingMines { get; set; }
         public Safe(Coordinates coordinates)
