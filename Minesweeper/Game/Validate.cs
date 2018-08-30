@@ -7,10 +7,10 @@ namespace Minesweeper.Game
     public class Validate
     {
         
-        private int BoardWidth { get; set; }
-        private int BoardLength { get; set; }
+        private static int BoardWidth { get; set; }
+        private static int BoardLength { get; set; }
         
-        public void ValidateBoard (List<int> boardSettings)
+        public static void ValidateBoard (List<int> boardSettings)
         {
             BoardWidth = boardSettings.ElementAt(0);
             BoardLength = boardSettings.ElementAt(1);
@@ -20,7 +20,8 @@ namespace Minesweeper.Game
         
         public static bool ValidBox(Coordinates coordinates)
         {
-            return true;
+            return coordinates.CoordinateX >= 0 && coordinates.CoordinateY >= 0 && 
+                   coordinates.CoordinateX <= BoardWidth && coordinates.CoordinateY <= BoardLength;
         }       
     }
 }

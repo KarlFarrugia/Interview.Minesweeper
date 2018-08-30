@@ -1,13 +1,19 @@
-﻿namespace Minesweeper.Game
+﻿using Minesweeper.Game.BoardComponents;
+
+namespace Minesweeper.Game
 {
     public struct MinesweeperBox
     {
-        public bool Mine { get; set; }
-        public int BoarderingMines { get; set; }
-
-        public override string ToString()
+        public IBoardComponents Component { get; private set; }
+      
+        public MinesweeperBox(IBoardComponents component) : this()
         {
-            return Mine ? "*" : BoarderingMines.ToString();
+            Component = component;
+        }
+        
+        public override string ToString()
+        {       
+            return Component.IsMine ? "*" : Component.BoarderingMines.ToString();
         }
     }
 }
