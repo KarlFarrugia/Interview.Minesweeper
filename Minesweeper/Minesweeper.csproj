@@ -41,10 +41,10 @@
     <Compile Include="Game\Board.cs" />
     <Compile Include="Game\BoardComponents\IBoardComponents.cs" />
     <Compile Include="Game\BoardComponents\Mine.cs" />
+    <Compile Include="Game\BoardComponents\MinesweeperBox.cs" />
     <Compile Include="Game\BoardComponents\Safe.cs" />
     <Compile Include="Game\ConfigurationsReader.cs" />
     <Compile Include="Game\Coordinates.cs" />
-    <Compile Include="Game\MinesweeperBox.cs" />
     <Compile Include="Game\StartGame.cs" />
     <Compile Include="Game\Validate.cs" />
     <Compile Include="Program.cs" />

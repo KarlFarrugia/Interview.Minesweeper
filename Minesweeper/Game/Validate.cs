@@ -12,6 +12,8 @@ namespace Minesweeper.Game
         
         public static void ValidateBoard (List<int> boardSettings)
         {
+            if (boardSettings.Count != 2) throw new Exception("Invalid game settings");   
+            
             BoardWidth = boardSettings.ElementAt(0);
             BoardLength = boardSettings.ElementAt(1);
             //checks board settings are both greater than 0
@@ -21,7 +23,7 @@ namespace Minesweeper.Game
         public static bool ValidBox(Coordinates coordinates)
         {
             return coordinates.CoordinateX >= 0 && coordinates.CoordinateY >= 0 && 
-                   coordinates.CoordinateX <= BoardWidth && coordinates.CoordinateY <= BoardLength;
-        }       
+                   coordinates.CoordinateX < BoardWidth && coordinates.CoordinateY < BoardLength;
+        }
     }
 }

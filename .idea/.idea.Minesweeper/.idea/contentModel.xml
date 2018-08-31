@@ -10,11 +10,11 @@
           <e p="BoardComponents" t="Include">
             <e p="IBoardComponents.cs" t="Include" />
             <e p="Mine.cs" t="Include" />
+            <e p="MinesweeperBox.cs" t="Include" />
             <e p="Safe.cs" t="Include" />
           </e>
           <e p="ConfigurationsReader.cs" t="Include" />
           <e p="Coordinates.cs" t="Include" />
-          <e p="MinesweeperBox.cs" t="Include" />
           <e p="StartGame.cs" t="Include" />
           <e p="Validate.cs" t="Include" />
         </e>
