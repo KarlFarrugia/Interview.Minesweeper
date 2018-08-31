@@ -7,9 +7,9 @@ namespace Minesweeper.Game
 {
     public class Board
     {
-        private int BoardWidth { get; set; }
-        private int BoardLength { get; set; }
-        private static MinesweeperBox[,] Box { get; set; }
+        internal int BoardWidth { get; set; }
+        internal int BoardLength { get; set; }
+        internal static MinesweeperBox[,] Box { get; set; }
         private const char Safe = '.';
         private const char Mine = '*';
         private static Validate validate { get; set; }
@@ -100,26 +100,6 @@ namespace Minesweeper.Game
             Box = new MinesweeperBox[BoardLength, BoardWidth];
             CreateLines(lines,0);
             return this;
-        }
-
-        private void PrintLine(int length, int width)
-        {
-            if(width == BoardWidth) return;
-            Console.Write(Box[length, width].ToString());
-            PrintLine(length, width + 1);           
-        }
-        
-        private void PrintLines(int length)
-        {
-            if (length == BoardLength) return;
-            PrintLine(length, 0);
-            Console.WriteLine();
-            PrintLines(length + 1);
-        }
-        
-        public void Print()
-        {
-            PrintLines(0);
         }
     }
 }

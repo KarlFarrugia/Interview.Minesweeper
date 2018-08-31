@@ -9,7 +9,7 @@ namespace Minesweeper.Game
         public static void Reader(List<int> gameSettings, IEnumerable<string> lines)
         {
             Board = BuildBoard(gameSettings, lines);
-            Board.Print();
+            new Printer(Board);
         }
 
         private static Board BuildBoard(List<int> gameSettings, IEnumerable<string> lines)

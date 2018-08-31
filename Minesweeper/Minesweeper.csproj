@@ -45,6 +45,7 @@
     <Compile Include="Game\BoardComponents\Safe.cs" />
     <Compile Include="Game\ConfigurationsReader.cs" />
     <Compile Include="Game\Coordinates.cs" />
+    <Compile Include="Game\Printer.cs" />
     <Compile Include="Game\StartGame.cs" />
     <Compile Include="Game\Validate.cs" />
     <Compile Include="Program.cs" />

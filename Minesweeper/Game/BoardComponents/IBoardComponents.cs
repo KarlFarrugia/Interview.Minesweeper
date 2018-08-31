@@ -2,7 +2,7 @@
 {
     public interface IBoardComponents
     {
-        bool IsMine { get;}
+        bool IsMine { get; }
         Coordinates Coordinates { get; }
         int BoarderingMines { get; }
     }
