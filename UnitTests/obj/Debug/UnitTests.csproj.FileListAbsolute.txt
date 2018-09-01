@@ -1,0 +1,10 @@
+C:\Users\Owner\RiderProjects\Minesweeper\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
+C:\Users\Owner\RiderProjects\Minesweeper\UnitTests\bin\Debug\UnitTests.dll
+C:\Users\Owner\RiderProjects\Minesweeper\UnitTests\bin\Debug\UnitTests.pdb
+C:\Users\Owner\RiderProjects\Minesweeper\UnitTests\bin\Debug\Minesweeper.exe
+C:\Users\Owner\RiderProjects\Minesweeper\UnitTests\bin\Debug\nunit.framework.dll
+C:\Users\Owner\RiderProjects\Minesweeper\UnitTests\bin\Debug\Minesweeper.pdb
+C:\Users\Owner\RiderProjects\Minesweeper\UnitTests\bin\Debug\nunit.framework.pdb
+C:\Users\Owner\RiderProjects\Minesweeper\UnitTests\bin\Debug\nunit.framework.xml
+C:\Users\Owner\RiderProjects\Minesweeper\UnitTests\obj\Debug\UnitTests.dll
+C:\Users\Owner\RiderProjects\Minesweeper\UnitTests\obj\Debug\UnitTests.pdb
