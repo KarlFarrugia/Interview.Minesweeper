@@ -18,14 +18,15 @@ namespace Minesweeper.Game
         private static Validate Validate { get; set; }
 
         /// <summary>
-        /// The Board constructor intialises the <see cref="Validate"/> class which is used to validate the board
-        /// parameters.
+        /// The Board constructor takes the <see cref="Validate"/> object as a parameter. The validator is used to
+        /// validate the board parameters.
         /// </summary>
-        public Board()
+        /// <param name="validator">The validation class preloaded with the board settings</param>
+        public Board(Validate validator)
         {
-            Validate = new Validate();
+            Validate = validator;
         }
-
+        
         /// <summary>
         /// Returns a <see cref="IBoardComponents"/> from a given set of <see cref="Coordinates"/>
         /// </summary>
@@ -79,16 +80,19 @@ namespace Minesweeper.Game
         /// ( 0,-1) ( 0, 0) ( 0, 1)
         /// ( 1,-1) ( 1, 0) ( 1, 1)
         ///
-        /// The (0,0) will not be incremented since the <see cref="IncrementCheck"/> method will find it to be a
-        /// <see cref="Mine"/>. The recursion method will return once the width reaches -2 (Goes beyond the incrementing
-        /// area).
+        /// The (0,0) i.e. current mine, will not be incremented since the <see cref="IncrementCheck"/> method will find
+        /// it to be a <see cref="Mine"/>. The recursion method will return once the width reaches -2 (Goes beyond the
+        /// incrementing area).
         /// </summary>
         /// <param name="coordinates">The coordinates of the current component</param>
         /// <param name="length">The length coordinate value of the component to increment</param>
         /// <param name="width">The width coordinate value of the component to increment</param>
         private static void IncrementNeighbour(Coordinates coordinates, int length, int width)
         {
+            //Base Case when width is equal to -2 return
             if (width == -2) return;
+            
+            //Iterative Case parse one neighbouring box and recurse over method to the next box
             IncrementCheck(new Coordinates{CoordinateX = coordinates.CoordinateX + length,
                                            CoordinateY = coordinates.CoordinateY + width});
             IncrementNeighbour(coordinates, length, width - 1);            
@@ -101,7 +105,10 @@ namespace Minesweeper.Game
         /// <param name="length">The length coordinate value of the component to increment</param>
         private static void IncrementNeighbours(Coordinates coordinates, int length)
         {
+            //Base Case when length is equal to -2 return
             if (length == -2) return;
+            
+            //Iterative Case parse one line of neighbouring boxes and recurse over method to the next line
             IncrementNeighbour(coordinates, length, 1);
             IncrementNeighbours(coordinates, length - 1);
         }
@@ -119,7 +126,10 @@ namespace Minesweeper.Game
         /// <exception cref="Exception">If a game specification does not match '.' or '*' throw an exception</exception>
         private void ParseLine(string line, int length, int width)
         {
+            //Base Case when the width matches the Board Width return
             if(width == BoardWidth) return;
+            
+            //Iterative Case parse one character and recurse over method to the next character
             var coordinates =  new Coordinates{CoordinateX = length, CoordinateY = width};
             switch (line.ElementAt(width))
             {
@@ -145,7 +155,11 @@ namespace Minesweeper.Game
         /// <param name="length">The length value of the line to be parsed</param>
         private void ParseLines(List<string> lines, int length)
         {
+            //Base Case when the length matches the Board Length return
             if (length == BoardLength) return;
+            
+            //Iterative Case parse one line and recurse over method to the next line
+            Validate.ValidateWidth(lines.ElementAt(length).Length);
             ParseLine(lines.ElementAt(length), length, 0);
             ParseLines(lines, length + 1);
         }
@@ -158,11 +172,16 @@ namespace Minesweeper.Game
         /// <returns>A finished board objected parsed from the given parameters</returns>
         public Board CreateBoard(List<int> boardSettings, List<string> lines)
         {
-            Validate.ValidateBoard(boardSettings);
+            //Create the board
+            Validate.ValidateLength(lines.Count);
             BoardLength = boardSettings.ElementAt(0);
             BoardWidth = boardSettings.ElementAt(1);
             Box = new MinesweeperBox[BoardLength, BoardWidth];
+            
+            //Fill the board
             ParseLines(lines,0);
+            
+            //Return the board
             return this;
         }
     }

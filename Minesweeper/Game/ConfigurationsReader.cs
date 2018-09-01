@@ -18,9 +18,10 @@ namespace Minesweeper.Game
         /// </summary>
         /// <param name="boardSettings">The length and width of the board</param>
         /// <param name="lines">The lines making up the board configuration</param>
-        public static void Reader(List<int> boardSettings, List<string> lines)
+        /// <param name="validator">The validation class preloaded with the board settings</param>
+        public static void Reader(List<int> boardSettings, List<string> lines, Validate validator)
         {
-            Board = BuildBoard(boardSettings, lines);
+            Board = BuildBoard(boardSettings, lines, validator);
             new Printer(Board);
         }
 
@@ -30,9 +31,10 @@ namespace Minesweeper.Game
         /// <param name="boardSettings">The length and width of the board</param>
         /// <param name="lines">The lines making up the board configuration</param>
         /// <returns>A finished <see cref="Board"/></returns>
-        private static Board BuildBoard(List<int> boardSettings, List<string> lines)
+        /// <param name="validator">The validation class preloaded with the board settings</param>
+        private static Board BuildBoard(List<int> boardSettings, List<string> lines, Validate validator)
         {
-            var board = new Board();
+            var board = new Board(validator);
             return board.CreateBoard(boardSettings, lines);
         }
     }

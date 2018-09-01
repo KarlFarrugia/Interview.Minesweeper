@@ -28,18 +28,21 @@ namespace Minesweeper.Game
         /// </summary>
         /// <param name="lines">The string of lines to be parsed from the file</param>
         /// <param name="current">The current game number. Starts from 1 and increments by 1 for each game</param>
-        private static void PlotGame(List<string> lines, int current)
+        public static void PlotGame(List<string> lines, int current)
         {
+            Validate.InitialFileLine(lines);
             //EOF specification
             if (lines.ElementAt(0).Equals("0 0")) return;
             
             //Otherwise execute current game
+            var validator = new Validate();
             Console.WriteLine("Field #{0}:", current);
-            var boardSettings = lines.ElementAt(0).Split(' ').Select(int.Parse).ToList();
-            ConfigurationsReader.Reader(boardSettings, lines.Skip(1).Take(boardSettings.ElementAt(0)).ToList());
+            var boardSettings = Validate.ValidateBoardSettings(lines.ElementAt(0));
+            ConfigurationsReader.Reader
+                (boardSettings, lines.Skip(1).Take(boardSettings.ElementAt(0)).ToList(), validator);
 
             //Recurse and remove the current game from the passed string. Increment the current game by 1
-            PlotGame(lines.Skip(boardSettings.ElementAt(0) + 1).ToList(), current + 1);
+            PlotGame(lines.Skip(boardSettings.ElementAt(0) + 1).ToList(), current + 1);           
         }
     }
 }
