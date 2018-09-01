@@ -22,7 +22,8 @@ namespace Minesweeper.Game
         public static void Reader(List<int> boardSettings, List<string> lines, Validate validator)
         {
             Board = BuildBoard(boardSettings, lines, validator);
-            new Printer(Board);
+            var printer = new Printer();
+            printer.Print(Board);
         }
 
         /// <summary>

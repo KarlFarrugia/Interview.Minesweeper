@@ -17,7 +17,7 @@ namespace Minesweeper.Game
         /// "PrintBoard"/> method to start printing information about each board component.
         /// </summary>
         /// <param name="board">The board objected to be printed</param>
-        public Printer(Board board)
+        public void Print(Board board)
         {
             Board = board;
             PrintBoard(0);
