@@ -55,7 +55,7 @@ namespace Minesweeper.Game
         /// </summary>
         /// <param name="coordinates">The <see cref="Coordinates"/> to be checked</param>
         /// <returns>Returns true if the coordinates lie within the box and false otherwise</returns>
-        public static bool ValidBox(Coordinates coordinates)
+        public bool ValidBox(Coordinates coordinates)
         {
             return coordinates.CoordinateX >= 0 && coordinates.CoordinateY >= 0 && 
                    coordinates.CoordinateX < BoardLength && coordinates.CoordinateY < BoardWidth;
@@ -67,7 +67,7 @@ namespace Minesweeper.Game
         /// <param name="length">The length of lines of specifications</param>
         /// <exception cref="Exception">An exception is thrown if the specified length and actual found length do not
         ///                             match</exception>
-        public static void ValidateLength(int length)
+        public void ValidateLength(int length)
         {
             if (length != BoardLength) throw new Exception("Specified and actual length do not match");
         }
@@ -78,7 +78,7 @@ namespace Minesweeper.Game
         /// <param name="width">The width of a line of specifications</param>
         /// <exception cref="Exception">An exception is thrown if the specified width and actual found width do not
         ///                             match</exception>
-        public static void ValidateWidth(int width)
+        public void ValidateWidth(int width)
         {
             if (width != BoardWidth) throw new Exception("Specified and actual width do not match");
         }

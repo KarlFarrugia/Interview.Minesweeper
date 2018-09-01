@@ -15,7 +15,7 @@ namespace Minesweeper.Game
         internal static MinesweeperBox[,] Box { get; private set; }
         private const char Safe = '.';
         private const char Mine = '*';
-        private static Validate Validate { get; set; }
+        private static Validate Validator { get; set; }
 
         /// <summary>
         /// The Board constructor takes the <see cref="Validate"/> object as a parameter. The validator is used to
@@ -24,7 +24,7 @@ namespace Minesweeper.Game
         /// <param name="validator">The validation class preloaded with the board settings</param>
         public Board(Validate validator)
         {
-            Validate = validator;
+            Validator = validator;
         }
         
         /// <summary>
@@ -66,7 +66,7 @@ namespace Minesweeper.Game
         /// <param name="coordinates"></param>
         private static void IncrementCheck(Coordinates coordinates)
         {
-            if (Validate.ValidBox(coordinates) && !IsMine(GetComponent(coordinates)))
+            if (Validator.ValidBox(coordinates) && !IsMine(GetComponent(coordinates)))
                 Box[coordinates.CoordinateX, coordinates.CoordinateY] = new MinesweeperBox(
                     new Safe(IncrementComponent(GetComponent(coordinates)), coordinates));    
         }
@@ -159,7 +159,7 @@ namespace Minesweeper.Game
             if (length == BoardLength) return;
             
             //Iterative Case parse one line and recurse over method to the next line
-            Validate.ValidateWidth(lines.ElementAt(length).Length);
+            Validator.ValidateWidth(lines.ElementAt(length).Length);
             ParseLine(lines.ElementAt(length), length, 0);
             ParseLines(lines, length + 1);
         }
@@ -173,7 +173,7 @@ namespace Minesweeper.Game
         public Board CreateBoard(List<int> boardSettings, List<string> lines)
         {
             //Create the board
-            Validate.ValidateLength(lines.Count);
+            Validator.ValidateLength(lines.Count);
             BoardLength = boardSettings.ElementAt(0);
             BoardWidth = boardSettings.ElementAt(1);
             Box = new MinesweeperBox[BoardLength, BoardWidth];
