@@ -3,3 +3,6 @@ C:\Users\Owner\RiderProjects\Minesweeper\Minesweeper\bin\Debug\Minesweeper.pdb
 C:\Users\Owner\RiderProjects\Minesweeper\Minesweeper\obj\Debug\Minesweeper.csprojResolveAssemblyReference.cache
 C:\Users\Owner\RiderProjects\Minesweeper\Minesweeper\obj\Debug\Minesweeper.exe
 C:\Users\Owner\RiderProjects\Minesweeper\Minesweeper\obj\Debug\Minesweeper.pdb
+C:\Users\Owner\RiderProjects\Minesweeper\Minesweeper\bin\Debug\nunit.framework.dll
+C:\Users\Owner\RiderProjects\Minesweeper\Minesweeper\bin\Debug\nunit.framework.pdb
+C:\Users\Owner\RiderProjects\Minesweeper\Minesweeper\bin\Debug\nunit.framework.xml

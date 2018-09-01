@@ -1,5 +1,8 @@
 ﻿namespace Minesweeper.Game
 {
+    /// <summary>
+    /// A class structure containing the X and Y coordinates of an object.
+    /// </summary>
     public struct Coordinates
     {
         public int CoordinateX { get; set; }
