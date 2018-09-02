@@ -40,7 +40,8 @@ namespace Minesweeper.Game
             var boardSettings = Validate.ValidateBoardSettings(lines.ElementAt(0));
             ConfigurationsReader.Reader
                 (boardSettings, lines.Skip(1).Take(boardSettings.ElementAt(0)).ToList(), validator);
-
+            Console.WriteLine();
+            
             //Recurse and remove the current game from the passed string. Increment the current game by 1
             PlotGame(lines.Skip(boardSettings.ElementAt(0) + 1).ToList(), current + 1);           
         }

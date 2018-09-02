@@ -21,7 +21,7 @@ namespace Minesweeper.Game
         /// The Board constructor takes the <see cref="Validate"/> object as a parameter. The validator is used to
         /// validate the board parameters.
         /// </summary>
-        /// <param name="validator">The validation class preloaded with the board settings</param>
+        /// <param name="validator">The validation object preloaded with the board settings</param>
         public Board(Validate validator)
         {
             Validator = validator;
